@@ -1,1 +1,261 @@
 
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GAMING HUB | আপনার প্রিয় গেমিং প্ল্যাটফর্ম</title>
+    <style>
+        /* CSS Styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, sans-serif;
+        }
+
+        body {
+            background-color: #0b0e14;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 8%;
+            background: #131924;
+            border-bottom: 2px solid #00ff88;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 26px;
+            font-weight: 900;
+            color: #00ff88;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
+        }
+
+        nav a {
+            color: #cbd5e1;
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #00ff88;
+        }
+
+        /* Banner Section */
+        .hero {
+            background: linear-gradient(rgba(11, 14, 20, 0.8), rgba(11, 14, 20, 0.9)), 
+                        url('https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1350&q=80') center/cover;
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 45px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hero h1 span {
+            color: #00ff88;
+            text-shadow: 0 0 15px rgba(0, 255, 136, 0.6);
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #94a3b8;
+            max-width: 600px;
+            margin-bottom: 25px;
+        }
+
+        .btn-main {
+            background: #00ff88;
+            color: #0b0e14;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 30px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 0 15px rgba(0, 255, 136, 0.4);
+            transition: 0.3s;
+        }
+
+        .btn-main:hover {
+            transform: scale(1.05);
+            background: #00cc6d;
+            box-shadow: 0 0 25px rgba(0, 255, 136, 0.8);
+        }
+
+        /* Games Grid Section */
+        .container {
+            padding: 50px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 30px;
+            margin-bottom: 40px;
+            color: #ffffff;
+            border-bottom: 3px solid #00ff88;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+        }
+
+        .game-card {
+            background: #131924;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #1e293b;
+            transition: 0.3s;
+        }
+
+        .game-card:hover {
+            transform: translateY(-8px);
+            border-color: #00ff88;
+            box-shadow: 0 5px 20px rgba(0, 255, 136, 0.2);
+        }
+
+        .game-card img {
+            width: 100%;
+            height: 170px;
+            object-fit: cover;
+        }
+
+        .game-info {
+            padding: 20px;
+        }
+
+        .game-info h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .game-info p {
+            color: #94a3b8;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .btn-card {
+            background: transparent;
+            color: #00ff88;
+            border: 1px solid #00ff88;
+            width: 100%;
+            padding: 10px;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn-card:hover {
+            background: #00ff88;
+            color: #0b0e14;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            background: #131924;
+            color: #64748b;
+            border-top: 1px solid #1e293b;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">GAMING HUB</div>
+        <nav>
+            <a href="#home">হোম</a>
+            <a href="#games">গেমস</a>
+            <a href="#about">আমাদের সম্পর্কে</a>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <h1>স্বাগতম <span>গেমিং ওয়ার্ল্ডে</span></h1>
+        <p>আপনার প্রিয় সব গেমের আপডেট, সার্ভিস এবং দুর্দান্ত অভিজ্ঞতা পেতে আমাদের সাথে থাকুন।</p>
+        <button class="btn-main" onclick="playGame()">এখনই শুরু করুন</button>
+    </section>
+
+    <section class="container" id="games">
+        <div style="text-align: center;">
+            <h2 class="section-title">পপুলার গেমস</h2>
+        </div>
+
+        <div class="games-grid">
+            <!-- Game Card 1 -->
+            <div class="game-card">
+                <img src="https://images.unsplash.com/photo-1538481199705-c710c4e965fc?auto=format&fit=crop&w=600&q=80" alt="Action Game">
+                <div class="game-info">
+                    <h3>অ্যাকশন ব্যাটল</h3>
+                    <p>মাল্টিপ্লেয়ার অনলাইন ব্যাটল রয়্যাল গেমের সেরা অভিজ্ঞতা নিন।</p>
+                    <button class="btn-card" onclick="selectGame('অ্যাকশন ব্যাটল')">বিস্তারিত দেখুন</button>
+                </div>
+            </div>
+
+            <!-- Game Card 2 -->
+            <div class="game-card">
+                <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=600&q=80" alt="Racing Game">
+                <div class="game-info">
+                    <h3>স্পিড রেসিং</h3>
+                    <p>হাই-স্পিড কার রেসিং এবং আলটিমেট ট্র্যাক ট্রায়াল।</p>
+                    <button class="btn-card" onclick="selectGame('স্পিড রেসিং')">বিস্তারিত দেখুন</button>
+                </div>
+            </div>
+
+            <!-- Game Card 3 -->
+            <div class="game-card">
+                <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=600&q=80" alt="Adventure Game">
+                <div class="game-info">
+                    <h3>সাইবার ওয়ার্ল্ড</h3>
+                    <p>ভবিষ্যতের সায়েন্স ফিকশন অ্যাডভেঞ্চার ও ফ্যান্টাসি জগত।</p>
+                    <button class="btn-card" onclick="selectGame('সাইবার ওয়ার্ল্ড')">বিস্তারিত দেখুন</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; ২০২৬ GAMING HUB | সর্বস্বত্ব সংরক্ষিত।</p>
+    </footer>
+
+    <script>
+        // JavaScript Interactive Logic
+        function playGame() {
+            alert('গেমিং হাবে আপনাকে স্বাগতম! আপনার পছন্দের গেমটি বেছে নিন।');
+        }
+
+        function selectGame(gameName) {
+            alert(gameName + ' গেমটি নির্বাচন করা হয়েছে!');
+        }
+    </script>
+
+</body>
+</html>
