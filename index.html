@@ -1,261 +1,278 @@
-
 <!DOCTYPE html>
 <html lang="bn">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GAMING HUB | আপনার প্রিয় গেমিং প্ল্যাটফর্ম</title>
+    <title>PLAY HUB | অনলাইন গেমস</title>
     <style>
-        /* CSS Styling */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Roboto, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
-            background-color: #0b0e14;
+            background-color: #0d1117;
             color: #ffffff;
-            line-height: 1.6;
+            text-align: center;
         }
 
         header {
+            background: #161b22;
+            padding: 20px;
+            border-bottom: 2px solid #238636;
+        }
+
+        h1 {
+            color: #2ea043;
+            margin-bottom: 5px;
+        }
+
+        .game-container {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 18px 8%;
-            background: #131924;
-            border-bottom: 2px solid #00ff88;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .logo {
-            font-size: 26px;
-            font-weight: 900;
-            color: #00ff88;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            text-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
-        }
-
-        nav a {
-            color: #cbd5e1;
-            text-decoration: none;
-            margin-left: 20px;
-            font-weight: 600;
-            transition: 0.3s;
-        }
-
-        nav a:hover {
-            color: #00ff88;
-        }
-
-        /* Banner Section */
-        .hero {
-            background: linear-gradient(rgba(11, 14, 20, 0.8), rgba(11, 14, 20, 0.9)), 
-                        url('https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1350&q=80') center/cover;
-            height: 60vh;
-            display: flex;
-            flex-direction: column;
+            flex-wrap: wrap;
             justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 0 20px;
-        }
-
-        .hero h1 {
-            font-size: 45px;
-            margin-bottom: 15px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .hero h1 span {
-            color: #00ff88;
-            text-shadow: 0 0 15px rgba(0, 255, 136, 0.6);
-        }
-
-        .hero p {
-            font-size: 18px;
-            color: #94a3b8;
-            max-width: 600px;
-            margin-bottom: 25px;
-        }
-
-        .btn-main {
-            background: #00ff88;
-            color: #0b0e14;
-            padding: 12px 30px;
-            border: none;
-            border-radius: 30px;
-            font-size: 16px;
-            font-weight: bold;
-            cursor: pointer;
-            box-shadow: 0 0 15px rgba(0, 255, 136, 0.4);
-            transition: 0.3s;
-        }
-
-        .btn-main:hover {
-            transform: scale(1.05);
-            background: #00cc6d;
-            box-shadow: 0 0 25px rgba(0, 255, 136, 0.8);
-        }
-
-        /* Games Grid Section */
-        .container {
-            padding: 50px 8%;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 30px;
-            margin-bottom: 40px;
-            color: #ffffff;
-            border-bottom: 3px solid #00ff88;
-            display: inline-block;
-            padding-bottom: 5px;
-        }
-
-        .games-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 25px;
+            gap: 20px;
+            padding: 30px 10px;
         }
 
         .game-card {
-            background: #131924;
+            background: #161b22;
+            border: 1px solid #30363d;
             border-radius: 12px;
-            overflow: hidden;
-            border: 1px solid #1e293b;
-            transition: 0.3s;
-        }
-
-        .game-card:hover {
-            transform: translateY(-8px);
-            border-color: #00ff88;
-            box-shadow: 0 5px 20px rgba(0, 255, 136, 0.2);
-        }
-
-        .game-card img {
-            width: 100%;
-            height: 170px;
-            object-fit: cover;
-        }
-
-        .game-info {
             padding: 20px;
+            width: 320px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
         }
 
-        .game-info h3 {
-            font-size: 20px;
-            margin-bottom: 10px;
-        }
-
-        .game-info p {
-            color: #94a3b8;
-            font-size: 14px;
+        .game-card h2 {
+            color: #58a6ff;
             margin-bottom: 15px;
         }
 
-        .btn-card {
-            background: transparent;
-            color: #00ff88;
-            border: 1px solid #00ff88;
-            width: 100%;
-            padding: 10px;
-            border-radius: 6px;
+        /* Tic Tac Toe UI */
+        .board {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 5px;
+            margin: 15px auto;
+            width: 200px;
+            height: 200px;
+        }
+
+        .cell {
+            background: #21262d;
+            border: 1px solid #30363d;
+            font-size: 24px;
             font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             cursor: pointer;
-            transition: 0.3s;
+            color: #f0f6fc;
         }
 
-        .btn-card:hover {
-            background: #00ff88;
-            color: #0b0e14;
+        /* Snake Game UI */
+        canvas {
+            background: #000000;
+            border: 2px solid #30363d;
+            margin-top: 10px;
         }
 
-        footer {
+        /* Number Game UI */
+        input[type="number"] {
+            padding: 8px;
+            width: 80%;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #30363d;
+            background: #0d1117;
+            color: #fff;
             text-align: center;
-            padding: 25px;
-            background: #131924;
-            color: #64748b;
-            border-top: 1px solid #1e293b;
-            margin-top: 40px;
+        }
+
+        button {
+            background: #238636;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+
+        button:hover {
+            background: #2ea043;
+        }
+
+        p.status {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #8b949e;
         }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="logo">GAMING HUB</div>
-        <nav>
-            <a href="#home">হোম</a>
-            <a href="#games">গেমস</a>
-            <a href="#about">আমাদের সম্পর্কে</a>
-        </nav>
+        <h1>🎮 PLAY HUB</h1>
+        <p>ওয়েবসাইটে বসেই সরাসরি বিভিন্ন গেম খেলুন!</p>
     </header>
 
-    <section class="hero" id="home">
-        <h1>স্বাগতম <span>গেমিং ওয়ার্ল্ডে</span></h1>
-        <p>আপনার প্রিয় সব গেমের আপডেট, সার্ভিস এবং দুর্দান্ত অভিজ্ঞতা পেতে আমাদের সাথে থাকুন।</p>
-        <button class="btn-main" onclick="playGame()">এখনই শুরু করুন</button>
-    </section>
+    <div class="game-container">
 
-    <section class="container" id="games">
-        <div style="text-align: center;">
-            <h2 class="section-title">পপুলার গেমস</h2>
+        <!-- Game 1: Tic Tac Toe -->
+        <div class="game-card">
+            <h2>১. টিক-ট্যাক-টো (X / O)</h2>
+            <div class="board" id="board">
+                <div class="cell" onclick="makeMove(0)"></div>
+                <div class="cell" onclick="makeMove(1)"></div>
+                <div class="cell" onclick="makeMove(2)"></div>
+                <div class="cell" onclick="makeMove(3)"></div>
+                <div class="cell" onclick="makeMove(4)"></div>
+                <div class="cell" onclick="makeMove(5)"></div>
+                <div class="cell" onclick="makeMove(6)"></div>
+                <div class="cell" onclick="makeMove(7)"></div>
+                <div class="cell" onclick="makeMove(8)"></div>
+            </div>
+            <p class="status" id="ttt-status">X-এর চাল</p>
+            <button onclick="resetTTT()">পুনরায় শুরু</button>
         </div>
 
-        <div class="games-grid">
-            <!-- Game Card 1 -->
-            <div class="game-card">
-                <img src="https://images.unsplash.com/photo-1538481199705-c710c4e965fc?auto=format&fit=crop&w=600&q=80" alt="Action Game">
-                <div class="game-info">
-                    <h3>অ্যাকশন ব্যাটল</h3>
-                    <p>মাল্টিপ্লেয়ার অনলাইন ব্যাটল রয়্যাল গেমের সেরা অভিজ্ঞতা নিন।</p>
-                    <button class="btn-card" onclick="selectGame('অ্যাকশন ব্যাটল')">বিস্তারিত দেখুন</button>
-                </div>
-            </div>
-
-            <!-- Game Card 2 -->
-            <div class="game-card">
-                <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=600&q=80" alt="Racing Game">
-                <div class="game-info">
-                    <h3>স্পিড রেসিং</h3>
-                    <p>হাই-স্পিড কার রেসিং এবং আলটিমেট ট্র্যাক ট্রায়াল।</p>
-                    <button class="btn-card" onclick="selectGame('স্পিড রেসিং')">বিস্তারিত দেখুন</button>
-                </div>
-            </div>
-
-            <!-- Game Card 3 -->
-            <div class="game-card">
-                <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=600&q=80" alt="Adventure Game">
-                <div class="game-info">
-                    <h3>সাইবার ওয়ার্ল্ড</h3>
-                    <p>ভবিষ্যতের সায়েন্স ফিকশন অ্যাডভেঞ্চার ও ফ্যান্টাসি জগত।</p>
-                    <button class="btn-card" onclick="selectGame('সাইবার ওয়ার্ল্ড')">বিস্তারিত দেখুন</button>
-                </div>
-            </div>
+        <!-- Game 2: Snake Game -->
+        <div class="game-card">
+            <h2>২. ক্লাসিক স্নেক গেম</h2>
+            <canvas id="snakeCanvas" width="200" height="200"></canvas>
+            <p class="status">কন্ট্রোল: Arrow Keys (তীর চিহ্ন)</p>
+            <button onclick="startSnake()">গেম স্টার্ট / রিসেট</button>
         </div>
-    </section>
 
-    <footer>
-        <p>&copy; ২০২৬ GAMING HUB | সর্বস্বত্ব সংরক্ষিত।</p>
-    </footer>
+        <!-- Game 3: Guessing Game -->
+        <div class="game-card">
+            <h2>৩. নম্বর জাস্টিস (১-২০)</h2>
+            <p style="font-size:13px; color:#8b949e; margin-bottom:10px;">১ থেকে ২০ এর মধ্যে সঠিক নম্বরটি অনুমান করুন</p>
+            <input type="number" id="guessInput" placeholder="সংখ্যা লিখুন">
+            <button onclick="checkGuess()">যাচাই করুন</button>
+            <p class="status" id="guess-status"></p>
+        </div>
+
+    </div>
 
     <script>
-        // JavaScript Interactive Logic
-        function playGame() {
-            alert('গেমিং হাবে আপনাকে স্বাগতম! আপনার পছন্দের গেমটি বেছে নিন।');
+        /* --- 1. Tic Tac Toe Logic --- */
+        let tttBoard = ['', '', '', '', '', '', '', '', ''];
+        let currentPlayer = 'X';
+        let tttActive = true;
+
+        function makeMove(index) {
+            if (tttBoard[index] === '' && tttActive) {
+                tttBoard[index] = currentPlayer;
+                document.getElementsByClassName('cell')[index].innerText = currentPlayer;
+                if (checkTTTWinner()) {
+                    document.getElementById('ttt-status').innerText = 'খেলোয়াড় ' + currentPlayer + ' জিতেছে!';
+                    tttActive = false;
+                } else if (!tttBoard.includes('')) {
+                    document.getElementById('ttt-status').innerText = 'ম্যাচ ড্র হয়েছে!';
+                } else {
+                    currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+                    document.getElementById('ttt-status').innerText = currentPlayer + '-এর চাল';
+                }
+            }
         }
 
-        function selectGame(gameName) {
-            alert(gameName + ' গেমটি নির্বাচন করা হয়েছে!');
+        function checkTTTWinner() {
+            const wins = [
+                [0,1,2],[3,4,5],[6,7,8],
+                [0,3,6],[1,4,7],[2,5,8],
+                [0,4,8],[2,4,6]
+            ];
+            return wins.some(comb => {
+                return comb.every(i => tttBoard[i] === currentPlayer);
+            });
+        }
+
+        function resetTTT() {
+            tttBoard = ['', '', '', '', '', '', '', '', ''];
+            currentPlayer = 'X';
+            tttActive = true;
+            document.getElementById('ttt-status').innerText = 'X-এর চাল';
+            let cells = document.getElementsByClassName('cell');
+            for(let cell of cells) cell.innerText = '';
+        }
+
+        /* --- 2. Snake Game Logic --- */
+        const canvas = document.getElementById("snakeCanvas");
+        const ctx = canvas.getContext("2d");
+        let snake, food, dx, dy, gameInterval;
+
+        function startSnake() {
+            clearInterval(gameInterval);
+            snake = [{x: 100, y: 100}];
+            food = {x: 60, y: 60};
+            dx = 10; dy = 0;
+            gameInterval = setInterval(updateSnake, 150);
+        }
+
+        document.addEventListener("keydown", changeDirection);
+
+        function changeDirection(event) {
+            const key = event.keyCode;
+            if (key === 37 && dx === 0) { dx = -10; dy = 0; }
+            if (key === 38 && dy === 0) { dx = 0; dy = -10; }
+            if (key === 39 && dx === 0) { dx = 10; dy = 0; }
+            if (key === 40 && dy === 0) { dx = 0; dy = 10; }
+        }
+
+        function updateSnake() {
+            const head = {x: snake[0].x + dx, y: snake[0].y + dy};
+            if (head.x < 0 || head.x >= 200 || head.y < 0 || head.y >= 200) {
+                clearInterval(gameInterval);
+                alert("গেম ওভার!");
+                return;
+            }
+
+            snake.unshift(head);
+            if (head.x === food.x && head.y === food.y) {
+                food = {
+                    x: Math.floor(Math.random() * 19) * 10,
+                    y: Math.floor(Math.random() * 19) * 10
+                };
+            } else {
+                snake.pop();
+            }
+
+            ctx.fillStyle = "black";
+            ctx.fillRect(0, 0, 200, 200);
+
+            ctx.fillStyle = "red";
+            ctx.fillRect(food.x, food.y, 10, 10);
+
+            ctx.fillStyle = "lime";
+            snake.forEach(part => ctx.fillRect(part.x, part.y, 10, 10));
+        }
+
+        /* --- 3. Guessing Game Logic --- */
+        let targetNumber = Math.floor(Math.random() * 20) + 1;
+
+        function checkGuess() {
+            let userGuess = parseInt(document.getElementById("guessInput").value);
+            let status = document.getElementById("guess-status");
+
+            if (userGuess === targetNumber) {
+                status.style.color = "#2ea043";
+                status.innerText = "অভিনন্দন! সঠিক সংখ্যাটি ছিল " + targetNumber;
+                targetNumber = Math.floor(Math.random() * 20) + 1;
+            } else if (userGuess > targetNumber) {
+                status.style.color = "#f85149";
+                status.innerText = "খুব বড় সংখ্যা! ছোট চেষ্টা করুন।";
+            } else if (userGuess < targetNumber) {
+                status.style.color = "#f85149";
+                status.innerText = "খুব ছোট সংখ্যা! বড় চেষ্টা করুন।";
+            }
         }
     </script>
-
 </body>
-</html>
+                </html>
+    
